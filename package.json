@@ -1,17 +1,16 @@
 {
   "name": "production-blog",
   "version": "1.0.0",
-  "description": "1. 开启mongodb, 在cmd中测试\r     - mongod开启\r     - 测试是否打开: mongo -u username -p pwd    \r 2. 确认已经下载了nodejs\r 3. 在主目录下运行\r     - npm i\r 4. 修改配置文件:\r     - config文件夹下有三个文件，分别为: 开发、生产、测试环境\r         - 根据上图的情况修改db对象中的user和pwd\r 5. 创建用户:\r     - model文件夹下的user.js\r     - 82-83行, 取消注释, 并根据自己需求修改\r 6. 安装完成后, 打开cmd, 输入指令：\r     - 开发环境: npm run dev\r     - 生产环境: npm run start\r     - 测试环境: npm run test\r     - 云数据库环境: npm run heroku\r 7. config -> heroku.json\r     - mongodbCloud\r         - url: 数据库地址\r         - user: 登录账户\r         - pwd: 密码",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node app.js",
     "start": "cross-env NODE_ENV=production node app.js",
     "test": "cross-env NODE_ENV=test node app.js",
-    "heroku": "cross-env NODE_ENV=heroku node app.js"
+    "build": "cross-env NODE_ENV=heroku node app.js",
+	"heroku": "node ./node_modules/.bin/pm2-runtime start ecosystem.config.js --env heroku"
   },
-  "keywords": [
-    "heroku"
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -30,21 +29,12 @@
     "joi": "^14.3.1",
     "mongoose": "^5.9.18",
     "mongoose-sex-page": "^1.2.4",
-    "morgan": "^1.10.0"
-  },
-  "devDependencies": {
-    "cross": "^1.0.0",
-    "cross-env": "^7.0.3"
+    "morgan": "^1.10.0",
+	"cross-env": "^7.0.3",
+	"pm2": "^5.1.0"
   },
   "engines": {
-    "node": "14.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ZealotAAA/Cloudproject.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ZealotAAA/Cloudproject/issues"
-  },
-  "homepage": "https://github.com/ZealotAAA/Cloudproject#readme"
+	"node": "v14.16.1",
+	"npm": "6.14.12"
+  }
 }

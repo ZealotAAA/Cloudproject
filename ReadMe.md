@@ -53,3 +53,21 @@ config:
 - production.json
 - test.json
 - development.json
+
+# Heroku 部署
+
+1. `heroku login -i`
+   - 'mail'
+   - `pwd`
+2. `heroku create sample`
+   - 记录`url`
+3. `git init`
+4. `git add .`
+5. `git commit -am "init"`
+6. `git remote set-url heroku <url>`
+7. `git push heroku master`
+8. `heroku logs`
+   - 观察是否出现400，`blank app`等
+9. `heroku restart`
+10. `heroku ps`
+

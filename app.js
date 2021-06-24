@@ -84,6 +84,6 @@ app.use((err, req, res, next) => {
 });
 
 // 监听端口
-app.listen(config.get('port'), () => {    
-    console.log(`The website server started successfully, please visit http://${config.get('host')}:${config.get('port')}\nShow page: http://127.0.0.1:81/home \nManage page: http://127.0.0.1:81/admin \n`);
+app.listen(process.env.PORT || config.get('port'), () => {    console.log(process.env.PORT)
+    console.log(`网站服务器启动成功，请访问http://${config.get('host')}:${config.get('port')}\n展示页面: http://127.0.0.1:81/home \n管理页面: http://127.0.0.1:81/admin \n`);
 });
